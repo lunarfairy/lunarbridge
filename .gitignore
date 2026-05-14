@@ -1,0 +1,13 @@
+# Build outputs
+/dist/
+
+# Test and local scratch
+/.tmp/
+/tmp/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+
+# Go coverage
+*.out

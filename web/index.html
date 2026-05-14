@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LunarBridge</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="topbar">
+        <div>
+          <h1>LunarBridge</h1>
+          <p id="subtitle">正在连接本机服务...</p>
+        </div>
+        <button id="refreshBtn" class="iconBtn" title="刷新设备" aria-label="刷新设备">↻</button>
+      </section>
+
+      <section class="grid">
+        <div class="panel devices">
+          <div class="panelHead">
+            <h2>设备</h2>
+            <span id="pairingCode" class="code">------</span>
+          </div>
+          <div class="manual">
+            <input id="manualAddress" type="text" placeholder="手动输入 IP:端口，例如 192.168.1.8:41231" />
+            <button id="manualBtn">添加</button>
+          </div>
+          <div id="deviceList" class="deviceList"></div>
+        </div>
+
+        <div class="panel send">
+          <div class="panelHead">
+            <h2>发送</h2>
+            <span id="selectedDevice" class="muted">未选择设备</span>
+          </div>
+          <div class="drop">
+            <input id="fileInput" type="file" multiple />
+            <input id="folderInput" type="file" webkitdirectory multiple />
+            <div class="dropActions">
+              <button id="chooseFilesBtn">选择文件</button>
+              <button id="chooseFolderBtn">选择文件夹</button>
+              <button id="sendBtn" class="primary" disabled>发送</button>
+            </div>
+            <p id="fileSummary">还没有选择文件。</p>
+          </div>
+          <div class="progressWrap">
+            <div id="progressBar" class="progressBar"></div>
+          </div>
+          <pre id="log" class="log"></pre>
+        </div>
+
+        <div class="panel settings">
+          <div class="panelHead">
+            <h2>设置</h2>
+            <span id="status" class="status">待命</span>
+          </div>
+          <label>
+            设备名称
+            <input id="deviceName" type="text" />
+          </label>
+          <label>
+            接收目录
+            <input id="receiveDir" type="text" />
+          </label>
+          <button id="saveSettingsBtn">保存设置</button>
+          <div class="hint">
+            首次配对时，在发送端输入接收端显示的 6 位配对码。
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="pairDialog">
+      <form method="dialog" class="dialogBody">
+        <h3>配对设备</h3>
+        <p id="pairTarget">选择的设备</p>
+        <input id="pairCodeInput" type="text" maxlength="6" placeholder="输入对方 6 位配对码" />
+        <div class="dialogActions">
+          <button value="cancel">取消</button>
+          <button id="pairConfirmBtn" value="default" class="primary">配对</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
