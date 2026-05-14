@@ -1,6 +1,3 @@
-# Build outputs
-/dist/
-
 # Test and local scratch
 /.tmp/
 /tmp/
